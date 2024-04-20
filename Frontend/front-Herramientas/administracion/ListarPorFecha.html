@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TecnoComponentes S.A.</title>
+
+  <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+
+
+
+
+  <meta name='viewport'
+    content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../assets/img/fabrica.png">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <!-- Añade el CSS específico de jQuery UI Datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <style>
+    /* Estilos personalizados */
+    .profile-info {
+      margin-bottom: 20px;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 5px;
+      right: 25px;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .texto-izquierdo {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .cuadro-azul-suave {
+      width: 50px;
+      height: 50px;
+      background-color: #78c0ff;
+      /* Cambia este valor para ajustar el tono */
+      border-radius: 5px;
+      /* Añade esquinas redondeadas */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      /* Cambia el tamaño de la fuente según sea necesario */
+    }
+
+    .imagen-circular {
+      border-radius: 50%;
+      width: 50px;
+      height: 35px;
+    }
+    .contenedor {
+      font-size: 20px;
+    }
+    .p11{
+      padding-left: 45px;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img id="Imagen1" src="../assets/img/logo-small.png" class="imagen-circular">
+          </div>
+        </a>
+        <a href="./perfil.html" name="Nombre1" id="Nombre1" class="simple-text logo-normal">
+          Turicheck
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="">
+            <a href="./menu.html">
+              <i class="nc-grid-45"></i>
+              <h2>Menu Principal</h2>
+            </a>
+          </li>
+          <li class="">
+            <a href="./registrarpiezas.html">
+              <i class="nc-icon nc-settings"></i>
+              <p>Registrar Piezas</p>
+            </a>
+          </li>
+          <li>
+            <a href="./ListarPorFecha.html">
+              <i class="nc-paper"></i>
+              <p>Consultar Piezas  </p>
+              <p class="p11">Por Fecha</p>
+            </a>
+          </li>
+          <li>
+            <a href="./Listar_Piezas.html">
+              <i class="nc-icon nc-paper"></i>
+              <p>Listar Piezas</p>
+            </a>
+          </li>
+          <li>
+            <a href="./perfil.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Perfil</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">TecnoComponentes S.A.</a>
+            <div class="logout-btn">
+              <button class="btn btn-danger" onclick="mostrarAlerta()">Cerrar sesión</button>
+          </div>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Consultar Piezas por Fecha</h4>
+                <form>
+                  <div class="form-group">
+                    <label for="FechaInicio" class="">Fecha Inicio :</label>
+                    <input id="FechaInicio" />
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </form>
+                <form>
+                  <div class="form-group">
+                    <label for="FechaFinal" class="ml-1 mr-auto">Fecha Final :</label>
+                    <input id="FechaFinal" />
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <select name="Linea" id="Linea" class="form-control">
+                    </select>
+                  </div>
+                </form>
+                <a class="btn btn-primary" href="#" role="button" id="buscarDatos" onclick="BuscarPorFecha()">Buscar</a>
+                <br>
+                <div id="mensaje"></div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Fabrica(SEDE)</th>
+                        <th>Linea</th>
+                        <th>Cantidad</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                  </table>
+                </div>
+                <div class="contenedor">
+                  <label for="">Cantidad total por linea :</label>
+                  <label for="" id="CantidadTotalLinea"></label>
+                <!--  <div class="cuadro-azul-suave" id="CantidadTotalLinea"></div> --> 
+                </div>
+              </div>
+              <div class="contenedor ml-3 mr-auto">
+                <label for="">Cantidad total :</label>
+              <!-- Navbar <span class="texto-izquierdo">Cantidad total:</span> --> 
+                <label for=""id="CantidadTotal"></label>
+              <!-- <div class="cuadro-azul-suave" id="CantidadTotal"></div> --> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="../assets/js/Cerrarsesion.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> <!-- Agregar jQuery UI -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+  <script src="../assets/demo/demo.js"></script>
+
+  <!-- Codigo de java Scritp para las funciones correspondientes -->
+  <script src="../assets/js/ListarPiezas.js"></script>
+  </div>
+</body>
+
+</html>
